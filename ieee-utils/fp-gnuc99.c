@@ -51,36 +51,36 @@ gsl_ieee_set_mode (int precision, int rounding, int exception_mask)
     {
     case GSL_IEEE_ROUND_TO_NEAREST:
 #ifdef FE_TONEAREST
-      fesetround (FE_TONEAREST) ;
-#else
+      //fesetround (FE_TONEAREST) ;
+//#else
       GSL_ERROR ("round-to-nearest is not supported by <fenv.h>", GSL_EUNSUP) ;
 #endif
       break ;
     case GSL_IEEE_ROUND_DOWN:
 #ifdef FE_DOWNWARD
-      fesetround (FE_DOWNWARD) ;
-#else
+      //fesetround (FE_DOWNWARD) ;
+//#else
       GSL_ERROR ("round-down is not supported by <fenv.h>", GSL_EUNSUP) ;
 #endif
       break ;
     case GSL_IEEE_ROUND_UP:
 #ifdef FE_UPWARD
-      fesetround (FE_UPWARD) ;
-#else
+      //fesetround (FE_UPWARD) ;
+//#else
       GSL_ERROR ("round-up is not supported by <fenv.h>", GSL_EUNSUP) ;
 #endif
       break ;
     case GSL_IEEE_ROUND_TO_ZERO:
 #ifdef FE_TOWARDZERO
-      fesetround (FE_TOWARDZERO) ;
-#else
+      //fesetround (FE_TOWARDZERO) ;
+//#else
       GSL_ERROR ("round-toward-zero is not supported by <fenv.h>", GSL_EUNSUP) ;
 #endif
       break ;
     default:
 #ifdef FE_TONEAREST
-      fesetround (FE_TONEAREST) ;
-#else
+      //fesetround (FE_TONEAREST) ;
+//#else
       GSL_ERROR ("default round-to-nearest mode is not supported by <fenv.h>", GSL_EUNSUP) ;
 #endif
     }
@@ -171,11 +171,11 @@ gsl_ieee_set_mode (int precision, int rounding, int exception_mask)
     }
 
 #if HAVE_DECL_FEENABLEEXCEPT
-  feenableexcept (mode) ;
-#elif HAVE_DECL_FESETTRAPENABLE
-  fesettrapenable (mode);
-#else
-  GSL_ERROR ("unknown exception trap method", GSL_EUNSUP)
+  //feenableexcept (mode) ;
+//#elif HAVE_DECL_FESETTRAPENABLE
+  //fesettrapenable (mode);
+//#else
+  GSL_ERROR ("unknown exception trap method", GSL_EUNSUP);
 #endif
 
   return GSL_SUCCESS ;
