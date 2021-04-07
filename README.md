@@ -2,6 +2,7 @@
 Run configure
 ```
 ./configure \
+--prefix=$HOME/aws-install \
 --target=mips-linux-uclibc-gnu \
 -host=x86_64-linux-gnu \
 CC=mips-linux-uclibc-gnu-gcc \
@@ -19,4 +20,5 @@ Edit `config.h`
 Build the project
 ```
 make -j8
+make install
 ``` 
